@@ -1,1 +1,1 @@
-pushd %HOMEPATH% & mkdir usability & mkdir usability\data & cd usability & python -m venv env & env\scripts\activate & popd & pip install -r requirements.txt & copy data\titanic.json %HOMEPATH%\usability\data & copy program.py %HOMEPATH%\usability
+pushd %HOMEPATH% & mkdir usability & mkdir usability\data & cd usability & python -m venv env & env\scripts\activate & popd & pip install -r requirements.txt & copy data\titanic.json %HOMEPATH%\usability\data & copy program.py %HOMEPATH%\usability & cd %HOMEPATH%\usability
