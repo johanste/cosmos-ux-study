@@ -30,14 +30,15 @@ with open(TITANIC_DATA_FILE, 'r') as f:
 for item in data:
     container.create_item(item)
 
-# Find all passengers that do not have a registered age
+# Find all passengers that do not have a registered age and delete them
 
-items = container.query_items("SELECT * FROM passenger WHERE passenger.age = ''")
+for item in container.query_items("SELECT * FROM passenger WHERE passenger.age = ''"):
+    container.delete_item(item)
 
 # Find the average age for passengers that survived from first class, excluding any 
 # passengers where age is unknown
 #
-items = list(container.query_items("SELECT * from passenger WHERE passenger.pclass=@class AND passenger.age != '' AND passenger.survived=1",
+items = list(container.query_items("SELECT * from passenger WHERE passenger.pclass=@class AND passenger.survived=1",
     parameters=[
         {'name': '@class', 'value': 1}
 ]))
