@@ -35,7 +35,7 @@ with open(TITANIC_DATA_FILE, 'r') as f:
 for item in data:
     client.CreateItem(database_or_Container_link=container['_self'], document=item)
 
-# Find all passengers that do not have a registered age
+# Find and delete all passengers that do not have a registered age
 
 items = client.QueryItems(database_or_Container_link=container['_self'], query="SELECT * FROM passenger WHERE passenger.age = ''")
 for item in items:
